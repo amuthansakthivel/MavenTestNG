@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="38261" started-at="2019-07-01T09:08:08Z" finished-at="2019-07-01T09:08:46Z">
+    <groups>
+    </groups>
+    <test name="AQCC Parallel Test" duration-ms="38261" started-at="2019-07-01T09:08:08Z" finished-at="2019-07-01T09:08:46Z">
+      <class name="com.testcases.FacilityViewTests">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testcases.FacilityViewTests@6dc17b83]" name="beforeSuite" is-config="true" duration-ms="89" started-at="2019-07-01T09:08:07Z" finished-at="2019-07-01T09:08:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@6dc17b83]" name="setUp" is-config="true" duration-ms="13184" started-at="2019-07-01T09:08:08Z" finished-at="2019-07-01T09:08:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validateEnteringShipmentID(java.lang.reflect.Method)[pri:0, instance:com.testcases.FacilityViewTests@6dc17b83]" name="validateEnteringShipmentID" duration-ms="22973" started-at="2019-07-01T09:08:21Z" description="Validate whether the user can able to enter shipmentID" finished-at="2019-07-01T09:08:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.testcases.FacilityViewTests.validateEnteringShipmentID(java.lang.reflect.Method)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateEnteringShipmentID -->
+        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@6dc17b83]" name="wrapUp" is-config="true" duration-ms="2086" started-at="2019-07-01T09:08:44Z" finished-at="2019-07-01T09:08:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- wrapUp -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testcases.FacilityViewTests@6dc17b83]" name="afterSuite" is-config="true" duration-ms="166" started-at="2019-07-01T09:08:46Z" finished-at="2019-07-01T09:08:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- com.testcases.FacilityViewTests -->
+    </test> <!-- AQCC Parallel Test -->
+  </suite> <!-- Suite -->
+</testng-results>
