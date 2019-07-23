@@ -23,6 +23,7 @@ public class HomePageTests {
 
 	@Test
 	public void test3() {
+		//test case 3
 		Assert.assertEquals(1, 1);
 	}
 }
