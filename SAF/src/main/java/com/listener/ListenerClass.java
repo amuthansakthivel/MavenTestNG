@@ -7,6 +7,7 @@ import org.testng.ITestResult;
 
 import com.reports.ExtentReport;
 import com.reports.LogStatus;
+import com.utils.TestUtils;
 
 
 /*
@@ -31,6 +32,7 @@ public class ListenerClass implements ITestListener{
 	public void onTestFailure(ITestResult result) {
 		LogStatus.fail(result.getMethod().getDescription()+ " is failed");
 		LogStatus.fail(result.getThrowable().toString());
+		LogStatus.fail("Failed",TestUtils.pullScreenshotPath());
 		ExtentReport.report.endTest(ExtentReport.logger);
 		
 	}

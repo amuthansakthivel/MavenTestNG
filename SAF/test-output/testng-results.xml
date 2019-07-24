@@ -2,33 +2,92 @@
 <testng-results skipped="0" failed="1" ignored="4" total="5" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="9432" started-at="2019-07-24T09:25:56Z" finished-at="2019-07-24T09:26:05Z">
+  <suite name="Suite" duration-ms="19799" started-at="2019-07-24T10:10:27Z" finished-at="2019-07-24T10:10:47Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="9432" started-at="2019-07-24T09:25:56Z" finished-at="2019-07-24T09:26:05Z">
+    <test name="Test" duration-ms="19799" started-at="2019-07-24T10:10:27Z" finished-at="2019-07-24T10:10:47Z">
       <class name="com.testcases.FacilityViewTests">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="beforeSuite" is-config="true" duration-ms="91" started-at="2019-07-24T09:25:56Z" finished-at="2019-07-24T09:25:56Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="beforeSuite" is-config="true" duration-ms="87" started-at="2019-07-24T10:10:27Z" finished-at="2019-07-24T10:10:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="setUp" is-config="true" duration-ms="6193" started-at="2019-07-24T09:25:56Z" finished-at="2019-07-24T09:26:02Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="setUp" is-config="true" duration-ms="6367" started-at="2019-07-24T10:10:27Z" finished-at="2019-07-24T10:10:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="test1()[pri:1, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="test1" duration-ms="898" started-at="2019-07-24T09:26:02Z" description="Test case 1" finished-at="2019-07-24T09:26:03Z">
-          <exception class="java.lang.AssertionError">
+        <test-method status="FAIL" signature="test1()[pri:1, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="test1" duration-ms="10746" started-at="2019-07-24T10:10:34Z" description="Test case 1" finished-at="2019-07-24T10:10:44Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
             <message>
-              <![CDATA[expected [2] but found [1]]]>
+              <![CDATA[no such element: Unable to locate element: {"method":"name","selector":"r"}
+  (Session info: chrome=75.0.3770.80)
+  (Driver info: chromedriver=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'INMAAWN5384001', ip: '172.27.101.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.44.609538 (b655c5a60b0b54..., userDataDir: C:\Users\asakthiv\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:53928}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 75.0.3770.80, webStorageEnabled: true}
+Session ID: 06bda42fb527983f1f874a3dc07d80a9
+*** Element info: {Using=name, value=r}]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [2] but found [1]
-at org.testng.Assert.fail(Assert.java:96)
-at org.testng.Assert.failNotEquals(Assert.java:776)
-at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:652)
-at org.testng.Assert.assertEquals(Assert.java:662)
-at com.testcases.FacilityViewTests.test1(FacilityViewTests.java:67)
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"name","selector":"r"}
+  (Session info: chrome=75.0.3770.80)
+  (Driver info: chromedriver=2.44.609538 (b655c5a60b0b544917107a59d4153d4bf78e1b90),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'INMAAWN5384001', ip: '172.27.101.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.44.609538 (b655c5a60b0b54..., userDataDir: C:\Users\asakthiv\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:53928}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 75.0.3770.80, webStorageEnabled: true}
+Session ID: 06bda42fb527983f1f874a3dc07d80a9
+*** Element info: {Using=name, value=r}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:404)
+at org.openqa.selenium.By$ByName.findElement(By.java:284)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.openqa.selenium.support.events.EventFiringWebDriver.lambda$new$1(EventFiringWebDriver.java:105)
+at com.sun.proxy.$Proxy9.findElement(Unknown Source)
+at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:194)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy13.getWrappedElement(Unknown Source)
+at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:50)
+at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:484)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.openqa.selenium.support.events.EventFiringWebDriver.lambda$new$1(EventFiringWebDriver.java:105)
+at com.sun.proxy.$Proxy9.executeScript(Unknown Source)
+at org.openqa.selenium.support.events.EventFiringWebDriver.executeScript(EventFiringWebDriver.java:229)
+at com.utils.SeleniumUtils.highlightElement(SeleniumUtils.java:33)
+at com.utils.SeleniumUtils.sendkeys(SeleniumUtils.java:25)
+at com.pages.HomePage.searchOnGoogle(HomePage.java:72)
+at com.testcases.FacilityViewTests.test1(FacilityViewTests.java:66)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -56,15 +115,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="wrapUp" is-config="true" duration-ms="2323" started-at="2019-07-24T09:26:03Z" finished-at="2019-07-24T09:26:05Z">
+        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="wrapUp" is-config="true" duration-ms="2318" started-at="2019-07-24T10:10:45Z" finished-at="2019-07-24T10:10:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- wrapUp -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="afterSuite" is-config="true" duration-ms="156" started-at="2019-07-24T09:26:05Z" finished-at="2019-07-24T09:26:06Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="afterSuite" is-config="true" duration-ms="158" started-at="2019-07-24T10:10:47Z" finished-at="2019-07-24T10:10:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

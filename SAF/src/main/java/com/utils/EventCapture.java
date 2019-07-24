@@ -90,7 +90,9 @@ public class EventCapture implements WebDriverEventListener {
 	}
 
 	public void afterClickOn(WebElement element, WebDriver driver) {
-		LogStatus.pass(element +" is clicked successfully");
+		
+		LogStatus.pass("Clicking is successfull on "+ element);
+		LogStatus.pass("Screenshot below", TestUtils.pullScreenshotPath());
 
 	}
 

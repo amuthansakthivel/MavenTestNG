@@ -25,7 +25,7 @@ public class SeleniumUtils {
 		highlightElement(element);
 		element.sendKeys(text);
 		LogStatus.pass(text + " is entered in to the "+ element);
-		LogStatus.pass("Screenshot below", TestUtils.pullScreenshotPath());
+		LogStatus.pass(text + " is entered in to the "+ element, TestUtils.pullScreenshotPath());
 		
 	}
 
