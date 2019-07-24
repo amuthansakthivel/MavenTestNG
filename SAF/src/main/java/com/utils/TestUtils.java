@@ -187,31 +187,35 @@ public class TestUtils {
 	}
 
 
-	public static String pullScreenshotPath() {
+	public static String pullScreenshotPath()  {
 		
 		String destination=null;
 		if(ReadPropertyFile.get("ScreenshotsRequired").equalsIgnoreCase("yes")) {
 			File scrFile = ((TakesScreenshot) Driver.driver).getScreenshotAs(OutputType.FILE);
-			try 
-			{
+			try {
 				if(screenshotPath.equals("")) {
 
-					destination=System.getProperty("user.dir")+"/screenshots/" +ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png";
+					destination=System.getProperty("user.dir")+"\\screenshots\\" +ListenerClass.TestcaseName+"\\"+ System.currentTimeMillis() + ".png";
 					FileUtils.copyFile(scrFile, new File(destination));
 				}
 				else {
-					destination=screenshotPath+"/screenshots/" +ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png";
+					destination=screenshotPath+"\\screenshots\\" +ListenerClass.TestcaseName.replaceAll(" ","")+"\\"+ System.currentTimeMillis() + ".png";
 					FileUtils.copyFile(scrFile, new File(destination));
 				}
-			} 
-
-			catch (IOException e) 
-			{
-				e.printStackTrace();
+			
 			}
+			catch(Exception e) {
+				e.printStackTrace();
+				
+			}
+			
 		}
+		System.out.println(destination);
 		return destination;
+		
 	}
 
+
+	
 
 }

@@ -15,17 +15,18 @@ public class SeleniumUtils {
 	public static void click(WebElement element)  {
 		highlightElement(element);
 		element.click();
-		TestUtils.takeScreenshot();
+		LogStatus.pass("Clicking is successfull on "+ element);
+		LogStatus.pass("Screenshot below", TestUtils.pullScreenshotPath());
 	}
 
 
 
-	public static void sendkeys(WebElement element, String text) {
+	public static void sendkeys(WebElement element, String text)  {
 		highlightElement(element);
 		element.sendKeys(text);
 		LogStatus.pass(text + " is entered in to the "+ element);
-		TestUtils.takeScreenshot();
-		//ExtentReport.logger.addScreenCapture(TestUtils.pullScreenshotPath());
+		LogStatus.pass("Screenshot below", TestUtils.pullScreenshotPath());
+		
 	}
 
 	public static void highlightElement(WebElement element) {

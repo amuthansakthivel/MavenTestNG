@@ -12,6 +12,7 @@ public class ExtentReport {
 
 	public static ExtentReports report=null;
 	public static ExtentTest logger=null;
+	
 
 	//To avoid external initialization
 	private ExtentReport() {

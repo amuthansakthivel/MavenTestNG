@@ -15,6 +15,8 @@ import com.listener.ListenerClass;
 import com.pages.FacilityViewPage;
 import com.pages.HomePage;
 import com.pages.LoginPage;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 import com.reports.ExtentReport;
 import com.utils.TestUtils;
 
@@ -62,7 +64,8 @@ public class FacilityViewTests {
 	public void test1() {
 		homepage=new HomePage();
 		homepage.searchOnGoogle();
-		Assert.assertEquals(1, 1);
+		Assert.assertEquals(1, 2);
+		
 	}
 	@Test
 	public void test2() {
