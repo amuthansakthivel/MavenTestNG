@@ -22,6 +22,13 @@ import com.listener.ListenerClass;
 import com.reports.ExtentReport;
 import com.reports.LogStatus;
 
+
+
+
+/*
+ * All the utilities needed for the framework is placed in this class including excel utilities, screenshot capture.
+ * We have used method overloading concept in getCellContent Method.
+ */
 public class TestUtils {
 
 	public static FileInputStream fs;
@@ -33,7 +40,12 @@ public class TestUtils {
 	public static List<String> invocationCount= new ArrayList<String>();
 	public static List<String> priority= new ArrayList<String>();
 	public static HashMap<Integer,String> rowAndTestCaseMap=new HashMap<Integer,String>();
+	public static String screenshotPath=ReadPropertyFile.get("ScreenshotPath");
 
+
+	/*
+	 * Reads the data from the excel sheet and store the values in respective lists which will be used in annotation transformer class
+	 */
 
 	public static void getRunStatus() throws Exception {
 		try {
@@ -50,21 +62,22 @@ public class TestUtils {
 			}
 		}
 		catch(FileNotFoundException e) {
-
+			e.printStackTrace();
 		}
 
 	}
 
-	public static Object getRowNumForTestCase(String testcasename) {
-		Object a=null;
-		for(Map.Entry m:rowAndTestCaseMap.entrySet()){    
-			if(m.getValue().toString().equalsIgnoreCase(testcasename)) {
-				a= m.getKey();
-			}
-		}
-		return a;
-	}
+	/*
+	 * public static Object getRowNumForTestCase(String testcasename) { Object
+	 * a=null; for(Map.Entry m:rowAndTestCaseMap.entrySet()){
+	 * if(m.getValue().toString().equalsIgnoreCase(testcasename)) { a= m.getKey(); }
+	 * } return a; }
+	 */
 
+	/*
+	 * Takes rowname and sheetname as parameter
+	 * return row number based of rowname
+	 */
 	public static int getRowNumForRowName(String sheetname,String rowName) {
 		int rownum=0;
 		sheet=workbook.getSheet(sheetname);
@@ -77,6 +90,11 @@ public class TestUtils {
 
 		return rownum;
 	}
+
+	/*
+	 * Takes columnname and sheetname as parameter
+	 * return column number based of columnheader
+	 */
 
 	public static int getColumnNumForColumnName(String sheetname, String columnname) {
 		int colnum=0;
@@ -93,25 +111,47 @@ public class TestUtils {
 	}
 
 
+	/*
+	 * Takes sheetname as parameter
+	 * return last row number of the sheet
+	 */
 	public static int getLastRowNum(String sheetname) {
 		return workbook.getSheet(sheetname).getLastRowNum();
 	}
 
+	/*
+	 * Takes sheetname, row number as parameter
+	 * return last cell number of the row
+	 */
 	public static int getLastColumnNum(String sheetname, int rownum) {
 		return workbook.getSheet(sheetname).getRow(rownum).getLastCellNum();
 	}
 
+
+	/*
+	 * Takes sheetname, row number, column number as parameter
+	 * return cell value
+	 */
 	public static String getCellContent(String sheetname,int rownum,int colnum) {
 		sheet=workbook.getSheet(sheetname);
 		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().toString();
 
 	}
+
+	/*
+	 * Takes sheetname, row number, column name as parameter
+	 * return cell value
+	 */
 	public static String getCellContent(String sheetname,int rownum,String columnname) {
 		sheet=workbook.getSheet(sheetname);
 		return sheet.getRow(rownum).getCell(getColumnNumForColumnName(sheetname, columnname)).getStringCellValue().toString();
 
 	}
 
+	/*
+	 * Takes sheetname, row name, column name as parameter
+	 * return cell value
+	 */
 	public static String getCellContent(String sheetname,String rowname,String columnname) {
 		sheet=workbook.getSheet(sheetname);
 		int rownum=getRowNumForRowName(sheetname, rowname);
@@ -124,18 +164,22 @@ public class TestUtils {
 
 
 
-
+	//takes screenshot
 	public static void takeScreenshot()  {
 
 		if(ReadPropertyFile.get("ScreenshotsRequired").equalsIgnoreCase("yes")) {
 
 			File scrFile = ((TakesScreenshot) Driver.driver).getScreenshotAs(OutputType.FILE);
 			try {
-
-				FileUtils.copyFile(scrFile, new File("./screenshots/" + ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png"));
+				if(screenshotPath.equals("")) {
+					FileUtils.copyFile(scrFile, new File("./screenshots/" + ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png"));
+				}
+				else
+				{
+					FileUtils.copyFile(scrFile, new File(screenshotPath+"/screenshots/" + ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png"));	
+				}
 			}
 			catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -144,18 +188,29 @@ public class TestUtils {
 
 
 	public static String pullScreenshotPath() {
+		
 		String destination=null;
-		File scrFile = ((TakesScreenshot) Driver.driver).getScreenshotAs(OutputType.FILE);
-		try {
-			destination=System.getProperty("user.dir")+"/screenshots/" +ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png";
-			FileUtils.copyFile(scrFile, new File(destination));
+		if(ReadPropertyFile.get("ScreenshotsRequired").equalsIgnoreCase("yes")) {
+			File scrFile = ((TakesScreenshot) Driver.driver).getScreenshotAs(OutputType.FILE);
+			try 
+			{
+				if(screenshotPath.equals("")) {
 
-		} catch (IOException e) {
-			e.printStackTrace();
+					destination=System.getProperty("user.dir")+"/screenshots/" +ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png";
+					FileUtils.copyFile(scrFile, new File(destination));
+				}
+				else {
+					destination=screenshotPath+"/screenshots/" +ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png";
+					FileUtils.copyFile(scrFile, new File(destination));
+				}
+			} 
+
+			catch (IOException e) 
+			{
+				e.printStackTrace();
+			}
 		}
-
 		return destination;
-
 	}
 
 

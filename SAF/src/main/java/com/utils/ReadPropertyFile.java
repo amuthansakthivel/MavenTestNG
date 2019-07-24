@@ -5,6 +5,9 @@ import java.util.Properties;
 
 public class ReadPropertyFile {
 
+	/*
+	 * 
+	 */
 	public static String get(String propertyname) {
 		
 		String returnproperty=null;

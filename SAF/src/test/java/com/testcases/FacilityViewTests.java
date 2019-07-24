@@ -60,6 +60,8 @@ public class FacilityViewTests {
 	
 	@Test
 	public void test1() {
+		homepage=new HomePage();
+		homepage.searchOnGoogle();
 		Assert.assertEquals(1, 1);
 	}
 	@Test

@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="5" passed="2">
+<testng-results skipped="0" failed="0" ignored="4" total="5" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="8742" started-at="2019-07-23T11:09:07Z" finished-at="2019-07-23T11:09:16Z">
+  <suite name="Suite" duration-ms="9363" started-at="2019-07-24T05:06:35Z" finished-at="2019-07-24T05:06:44Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="8742" started-at="2019-07-23T11:09:07Z" finished-at="2019-07-23T11:09:16Z">
-      <class name="com.testcases.HomePageTests">
-        <test-method status="PASS" signature="test3()[pri:1, instance:com.testcases.HomePageTests@52e6fdee]" name="test3" duration-ms="1" started-at="2019-07-23T11:09:16Z" description="Test Case 3" finished-at="2019-07-23T11:09:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test3 -->
-      </class> <!-- com.testcases.HomePageTests -->
+    <test name="Test" duration-ms="9363" started-at="2019-07-24T05:06:35Z" finished-at="2019-07-24T05:06:44Z">
       <class name="com.testcases.FacilityViewTests">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="beforeSuite" is-config="true" duration-ms="90" started-at="2019-07-23T11:09:07Z" finished-at="2019-07-23T11:09:07Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="beforeSuite" is-config="true" duration-ms="78" started-at="2019-07-24T05:06:35Z" finished-at="2019-07-24T05:06:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="setUp" is-config="true" duration-ms="6628" started-at="2019-07-23T11:09:07Z" finished-at="2019-07-23T11:09:14Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="setUp" is-config="true" duration-ms="6276" started-at="2019-07-24T05:06:35Z" finished-at="2019-07-24T05:06:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="test1()[pri:1, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="test1" duration-ms="15" started-at="2019-07-23T11:09:14Z" description="Test case 1" finished-at="2019-07-23T11:09:14Z">
+        <test-method status="PASS" signature="test1()[pri:1, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="test1" duration-ms="681" started-at="2019-07-24T05:06:41Z" description="Test case 1" finished-at="2019-07-24T05:06:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="wrapUp" is-config="true" duration-ms="2078" started-at="2019-07-23T11:09:14Z" finished-at="2019-07-23T11:09:16Z">
+        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="wrapUp" is-config="true" duration-ms="2390" started-at="2019-07-24T05:06:42Z" finished-at="2019-07-24T05:06:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- wrapUp -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="afterSuite" is-config="true" duration-ms="173" started-at="2019-07-23T11:09:16Z" finished-at="2019-07-23T11:09:16Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testcases.FacilityViewTests@14dd9eb7]" name="afterSuite" is-config="true" duration-ms="160" started-at="2019-07-24T05:06:44Z" finished-at="2019-07-24T05:06:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

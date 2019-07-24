@@ -8,6 +8,10 @@ import org.testng.ITestResult;
 import com.reports.ExtentReport;
 import com.reports.LogStatus;
 
+
+/*
+ * Listener class which is implementing ITestListener and hence we can use this to dynamically create reports, write logs.
+ */
 public class ListenerClass implements ITestListener{
 	public static String TestcaseName;
 

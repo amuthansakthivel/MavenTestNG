@@ -36,6 +36,10 @@ public class HomePage {
 	@FindBy(xpath="//span[text()='EXCEPTION PER COUNTRY FOR']")
 	WebElement txt_exceptionpercountryfor;
 
+	@FindBy(name="q")
+	WebElement searchBox;
+
+	
 	public HomePage() {
 		PageFactory.initElements(Driver.driver, this);
 	}
@@ -62,6 +66,10 @@ public class HomePage {
 	public AccountViewPage clickOnAccountView() {
 		SeleniumUtils.click(lnk_accountview);
 		return new AccountViewPage();
+	}
+	
+	public void searchOnGoogle() {
+		SeleniumUtils.sendkeys(searchBox, "automation");
 	}
 	
 	public boolean checkDefaultTabSelectedIsGlobalView() {

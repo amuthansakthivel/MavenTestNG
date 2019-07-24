@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="com.listener.ListenerClass"/>
+    <listener class-name="com.listener.AnnotationTransformer"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
       <class name="com.testcases.FacilityViewTests">
         <methods>
           <include name="setUp"/>
+          <include name="test1"/>
           <include name="beforeSuite"/>
-          <include name="test2"/>
           <include name="afterSuite"/>
-          <include name="checkWhetherGlobalViewIsSelectedByDefault"/>
           <include name="wrapUp"/>
-          <include name="validateEnteringShipmentID"/>
         </methods>
       </class> <!-- com.testcases.FacilityViewTests -->
     </classes>

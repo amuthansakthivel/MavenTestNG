@@ -5,6 +5,11 @@ import org.testng.ITestResult;
 
 import com.utils.ReadPropertyFile;
 
+
+
+/*
+ * Logic to retry test cases and no of retries depends on parameter from properties file
+ */
 public class RetryFailedTestCases implements IRetryAnalyzer{
 
 	int counter=0;

@@ -24,7 +24,8 @@ public class SeleniumUtils {
 		highlightElement(element);
 		element.sendKeys(text);
 		LogStatus.pass(text + " is entered in to the "+ element);
-		ExtentReport.logger.addScreenCapture(TestUtils.pullScreenshotPath());
+		TestUtils.takeScreenshot();
+		//ExtentReport.logger.addScreenCapture(TestUtils.pullScreenshotPath());
 	}
 
 	public static void highlightElement(WebElement element) {

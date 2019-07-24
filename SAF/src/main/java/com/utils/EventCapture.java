@@ -8,6 +8,10 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 
 import com.reports.LogStatus;
 
+
+/*
+ * WebDriver listener will listen all driver events. It can be modified according to the requirements.
+ */
 public class EventCapture implements WebDriverEventListener {
 
 	public void beforeAlertAccept(WebDriver driver) {
