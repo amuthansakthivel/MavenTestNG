@@ -1,15 +1,36 @@
 package com.utils;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.EmailAttachment;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
+import org.apache.commons.mail.MultiPartEmail;
+import org.apache.commons.mail.SimpleEmail;
+import org.apache.poi.util.IOUtils;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
@@ -188,7 +209,7 @@ public class TestUtils {
 
 
 	public static String pullScreenshotPath()  {
-		
+
 		String destination=null;
 		if(ReadPropertyFile.get("ScreenshotsRequired").equalsIgnoreCase("yes")) {
 			File scrFile = ((TakesScreenshot) Driver.driver).getScreenshotAs(OutputType.FILE);
@@ -202,20 +223,72 @@ public class TestUtils {
 					destination=screenshotPath+"\\screenshots\\" +ListenerClass.TestcaseName.replaceAll(" ","")+"\\"+ System.currentTimeMillis() + ".png";
 					FileUtils.copyFile(scrFile, new File(destination));
 				}
-			
+
 			}
 			catch(Exception e) {
 				e.printStackTrace();
-				
+
 			}
-			
+
 		}
 		System.out.println(destination);
 		return destination;
-		
+
 	}
 
+	public static String getBase64Image(String screenshotpath) {
+		String base64 = null;
+		try {
+			InputStream is= new FileInputStream(screenshotpath);
+			byte[] imageBytes = IOUtils.toByteArray(is);
+			base64 = Base64.getEncoder().encodeToString(imageBytes);
 
-	
+		}
+		catch (Exception e) {
+
+		}
+		return base64;
+
+	}
+
+	/*
+	 * Sends test results to the respective stakeholders
+	 */
+
+	public static void sendEmailWithResults() throws Exception {
+
+		if(ReadPropertyFile.get("SendExecutionResultsInEmail").equalsIgnoreCase("yes")) {
+
+			EmailAttachment attachment = new EmailAttachment();
+			attachment.setPath(ExtentReport.extentreportpath);
+			attachment.setDisposition(EmailAttachment.ATTACHMENT);
+			attachment.setDescription("Execution Results"); 
+			attachment.setName("results.html");
+
+			MultiPartEmail email = new MultiPartEmail();
+			email.setHostName("smtp.gmail.com");
+			email.setSmtpPort(465);
+			email.setAuthenticator(new DefaultAuthenticator(ReadPropertyFile.get("FromEmail"), ReadPropertyFile.get("EmailPassword")));
+			email.setSSLOnConnect(true);
+			email.setStartTLSEnabled(true);
+			email.setFrom(ReadPropertyFile.get("FromEmail"));
+			email.setSubject("Results");
+			email.setMsg("Hi Team,\n\n Please find the attached test Automation Execution Results\n\n");
+			
+			email.addTo(getList("ToEmails"));
+			email.addCc(getList("CCEmails"));
+			email.addBcc(getList("BCCEmails"));
+
+			email.attach(attachment);
+			email.send();
+			System.out.println("Email sent-->");
+		}
+	}
+
+	public static String[] getList(String maillist) {
+		String[] toList=null;
+		toList=ReadPropertyFile.get(maillist).split(",");
+		return toList;
+	}
 
 }

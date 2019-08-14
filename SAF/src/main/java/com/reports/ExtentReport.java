@@ -12,6 +12,7 @@ public class ExtentReport {
 
 	public static ExtentReports report=null;
 	public static ExtentTest logger=null;
+	public static String extentreportpath="";
 	
 
 	//To avoid external initialization
@@ -23,25 +24,28 @@ public class ExtentReport {
 		{
 			if(ReadPropertyFile.get("ResultPath").equals("")) 
 			{
-				report=new ExtentReports(".\\ExtentReports\\Test Report.html");
+				extentreportpath=".\\ExtentReports\\Test Report.html";
+				
 			}
 			else {
-				report= new ExtentReports(ReadPropertyFile.get("ResultPath")+"\\ExtentReports\\Test Report.html");
+				extentreportpath=ReadPropertyFile.get("ResultPath")+"\\ExtentReports\\Test Report.html";
 			}
 		}
 		else 
 		{
 			if(ReadPropertyFile.get("ResultPath").equals("")) 
 			{
-				report=new ExtentReports(".\\ExtentReports\\Test Report_"+currentDate+".html");
+				extentreportpath=".\\ExtentReports\\Test Report_"+currentDate+".html";
 			}
 			
 			else
 			{
-				report= new ExtentReports(ReadPropertyFile.get("ResultPath")+"\\ExtentReports\\Test Report_"+currentDate+".html");
+				extentreportpath=ReadPropertyFile.get("ResultPath")+"\\ExtentReports\\Test Report_"+currentDate+".html";
+				
 			}
 
 		}
+		report=new ExtentReports(extentreportpath);
 		report.loadConfig(new File("./src/test/resources/extentreport.xml"));
 	}
 

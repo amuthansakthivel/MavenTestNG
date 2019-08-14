@@ -36,7 +36,7 @@ public class HomePage {
 	@FindBy(xpath="//span[text()='EXCEPTION PER COUNTRY FOR']")
 	WebElement txt_exceptionpercountryfor;
 
-	@FindBy(name="r")
+	@FindBy(name="q")
 	WebElement searchBox;
 
 	

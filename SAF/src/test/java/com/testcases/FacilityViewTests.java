@@ -38,8 +38,9 @@ public class FacilityViewTests {
 	}
 	
 	@AfterSuite
-	public void afterSuite() {
+	public void afterSuite() throws Exception {
 		ExtentReport.report.flush();
+		TestUtils.sendEmailWithResults();
 	}
 	
 	
@@ -64,11 +65,13 @@ public class FacilityViewTests {
 	public void test1() {
 		homepage=new HomePage();
 		homepage.searchOnGoogle();
-		Assert.assertEquals(1, 2);
+		//Assert.assertEquals(1, 2);
 		
 	}
 	@Test
 	public void test2() {
+		homepage=new HomePage();
+		homepage.searchOnGoogle();
 		Assert.assertEquals(1, 2);
 	}
 	

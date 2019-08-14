@@ -6,8 +6,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.browser.Driver;
+import com.pages.HomePage;
+import com.pages.LoginPage;
 
 public class HomePageTests {
+	
+	LoginPage loginpage;
+	HomePage homepage;
 	
 	@BeforeMethod
 	public void setUp() {
@@ -23,7 +28,8 @@ public class HomePageTests {
 
 	@Test
 	public void test3() {
-		//test case 3
+		homepage=new HomePage();
+		homepage.searchOnGoogle();
 		Assert.assertEquals(1, 1);
 	}
 }
