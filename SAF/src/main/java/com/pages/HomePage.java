@@ -1,5 +1,6 @@
 package com.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.browser.Driver;
 import com.relevantcodes.extentreports.LogStatus;
 import com.reports.ExtentReport;
+import com.utils.DynamicXpath;
 import com.utils.SeleniumUtils;
 import com.utils.TestUtils;
 
@@ -38,6 +40,8 @@ public class HomePage {
 
 	@FindBy(name="q")
 	WebElement searchBox;
+	
+	public static String txtbox_searchbox="//*[@name='%replaceable%']";
 
 	
 	public HomePage() {
@@ -68,8 +72,10 @@ public class HomePage {
 		return new AccountViewPage();
 	}
 	
-	public void searchOnGoogle() {
-		SeleniumUtils.sendkeys(searchBox, "automation");
+	public void searchOnGoogle(String value) {
+		//SeleniumUtils.sendkeys(searchBox, "automation");
+		String newxpath=DynamicXpath.get(txtbox_searchbox, "q");
+		SeleniumUtils.sendkeys(Driver.driver.findElement(By.xpath(newxpath)),value);
 	}
 	
 	public boolean checkDefaultTabSelectedIsGlobalView() {

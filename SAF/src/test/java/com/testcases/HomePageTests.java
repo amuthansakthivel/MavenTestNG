@@ -1,5 +1,7 @@
 package com.testcases;
 
+import java.util.Hashtable;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -27,9 +29,9 @@ public class HomePageTests {
 	
 
 	@Test
-	public void test3() {
+	public void test3(Hashtable<String,String> data) {
 		homepage=new HomePage();
-		homepage.searchOnGoogle();
+		homepage.searchOnGoogle(data.get("valueforsearch"));
 		Assert.assertEquals(1, 1);
 	}
 }

@@ -10,7 +10,7 @@
       <class name="com.testcases.FacilityViewTests">
         <methods>
           <include name="setUp"/>
-          <include name="test1"/>
+          <include name="test1" invocation-numbers="1"/>
           <include name="beforeSuite"/>
           <include name="afterSuite"/>
           <include name="wrapUp"/>

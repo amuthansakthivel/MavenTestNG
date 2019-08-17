@@ -60,7 +60,7 @@ public class LogStatus {
 	public static void pass(String string, String addScreenCapture) {
 
 		if(ReadPropertyFile.get("PassedStepsScreenshots").equalsIgnoreCase("yes")) {
-			ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.SKIP, string,ExtentReport.logger.addBase64ScreenShot("data:image/png;base64,"+TestUtils.getBase64Image(addScreenCapture)));
+			ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.PASS, string,ExtentReport.logger.addBase64ScreenShot("data:image/png;base64,"+TestUtils.getBase64Image(addScreenCapture)));
 			//	ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.PASS, string , ExtentReport.logger.addScreenCapture(addScreenCapture));
 		}
 	}
@@ -69,7 +69,7 @@ public class LogStatus {
 	{
 
 		if(ReadPropertyFile.get("FailedStepsScreenshots").equalsIgnoreCase("yes")) {
-			ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.SKIP, string,ExtentReport.logger.addBase64ScreenShot("data:image/png;base64,"+TestUtils.getBase64Image(addScreenCapture)));
+			ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.FAIL, string,ExtentReport.logger.addBase64ScreenShot("data:image/png;base64,"+TestUtils.getBase64Image(addScreenCapture)));
 			//	ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.PASS, string , ExtentReport.logger.addScreenCapture(addScreenCapture));
 		}
 

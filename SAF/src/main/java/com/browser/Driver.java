@@ -37,14 +37,13 @@ public class Driver {
 				DesiredCapabilities capabilities= new DesiredCapabilities();
 				capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 				driver=new ChromeDriver();
-
 			}
-			else if(browser.equalsIgnoreCase("firefox")) {
-				System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+			else if(browser.equalsIgnoreCase("firefox")) 
+			{
+				System.setProperty("webdriver.gecko.driver", ".//src/test/resources/geckodriver.exe");
 				FirefoxOptions FFoptions= new FirefoxOptions();
 				FFoptions.addArguments("--incognito");
 				driver= new FirefoxDriver(FFoptions);
-
 			}
 		}
 		catch (Exception e) {
@@ -66,8 +65,8 @@ public class Driver {
 			driver.quit();
 		}
 	}
-	
-	
+
+
 	/*
 	 * Used to listen to driver events
 	 */

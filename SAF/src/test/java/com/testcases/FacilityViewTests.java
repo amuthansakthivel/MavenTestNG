@@ -1,6 +1,7 @@
 package com.testcases;
 
 import java.lang.reflect.Method;
+import java.util.Hashtable;
 
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -61,17 +62,17 @@ public class FacilityViewTests {
 		homepage.logout();
 	}
 	
-	@Test
-	public void test1() {
+	@Test()
+	public void test1(Hashtable<String,String> data) {
 		homepage=new HomePage();
-		homepage.searchOnGoogle();
+		homepage.searchOnGoogle(data.get("valueforsearch"));
 		//Assert.assertEquals(1, 2);
 		
 	}
 	@Test
-	public void test2() {
+	public void test2(Hashtable<String,String> data) {
 		homepage=new HomePage();
-		homepage.searchOnGoogle();
+		homepage.searchOnGoogle(data.get("valueforsearch"));
 		Assert.assertEquals(1, 2);
 	}
 	
