@@ -5,6 +5,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.reports.ExtentManager;
 import com.reports.ExtentReport;
 import com.reports.LogStatus;
 import com.utils.TestUtils;
@@ -18,7 +19,8 @@ public class ListenerClass implements ITestListener{
 
 	public void onTestStart(ITestResult result) {
 		TestcaseName =result.getMethod().getDescription();
-		ExtentReport.logger=ExtentReport.report.startTest(TestcaseName);
+		
+		ExtentManager.setExtentTest(ExtentReport.report.startTest(TestcaseName));
 		LogStatus.pass("Test Case "+TestcaseName+ " is started successfully");
 		
 	}
@@ -26,14 +28,14 @@ public class ListenerClass implements ITestListener{
 	public void onTestSuccess(ITestResult result) {
 		
 		LogStatus.pass(result.getMethod().getDescription()+ " test case is passed");
-		ExtentReport.report.endTest(ExtentReport.logger);
+		ExtentReport.report.endTest(ExtentManager.getExtTest());
 	}
 
 	public void onTestFailure(ITestResult result) {
 		LogStatus.fail(result.getMethod().getDescription()+ " is failed");
 		LogStatus.fail(result.getThrowable().toString());
 		LogStatus.fail("Failed",TestUtils.pullScreenshotPath());
-		ExtentReport.report.endTest(ExtentReport.logger);
+		ExtentReport.report.endTest(ExtentManager.getExtTest());
 		
 	}
 
@@ -41,12 +43,12 @@ public class ListenerClass implements ITestListener{
 		
 		LogStatus.skip(result.getMethod().getDescription()+ " is skipped");
 		
-		ExtentReport.report.endTest(ExtentReport.logger);
+		ExtentReport.report.endTest(ExtentManager.getExtTest());
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
 		// TODO Auto-generated method stub
-		ExtentReport.report.endTest(ExtentReport.logger);
+		ExtentReport.report.endTest(ExtentManager.getExtTest());
 	}
 
 	public void onStart(ITestContext context) {
@@ -55,7 +57,7 @@ public class ListenerClass implements ITestListener{
 	}
 
 	public void onFinish(ITestContext context) {
-		ExtentReport.report.endTest(ExtentReport.logger);
+		ExtentReport.report.endTest(ExtentManager.getExtTest());
 		
 	}
 

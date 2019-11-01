@@ -324,7 +324,7 @@ public class TestUtils {
 	 * As long as the first name of the TestData has the same test case name it will be treated as iteration.
 	 * 
 	 */
-	@DataProvider(name="dataProviderForIterations")
+	@DataProvider(name="dataProviderForIterations",parallel=true)
 	public static Object[][] supplyDataForIterations(Method m){
 		return getDataForDataprovider(ReadPropertyFile.get("TestDataLocation"),"TestData",m.getName());
 	}

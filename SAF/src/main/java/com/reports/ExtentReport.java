@@ -11,7 +11,7 @@ import com.utils.ReadPropertyFile;
 public class ExtentReport {
 
 	public static ExtentReports report=null;
-	public static ExtentTest logger=null;
+//	public static ExtentTest logger=null;
 	public static String extentreportpath="";
 	
 

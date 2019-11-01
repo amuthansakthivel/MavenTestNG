@@ -5,7 +5,7 @@
 	<listener class-name="com.listener.ListenerClass"></listener>
 	<listener class-name="com.listener.AnnotationTransformer"></listener>
 	</listeners>
-  <test thread-count="2" name="Test" parallel="methods">
+  <test thread-count="3" name="Test" parallel="methods">
   
     <classes>
     	<class name="com.testcases.BaseTest"/>
