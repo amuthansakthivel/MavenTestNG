@@ -5,15 +5,15 @@
     <listener class-name="com.listener.ListenerClass"/>
     <listener class-name="com.listener.AnnotationTransformer"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Test(failed)" parallel="methods">
     <classes>
       <class name="com.testcases.FacilityViewTests">
         <methods>
-          <include name="setUp"/>
-          <include name="test1" invocation-numbers="1"/>
-          <include name="beforeSuite"/>
-          <include name="afterSuite"/>
+          <include name="test1"/>
           <include name="wrapUp"/>
+          <include name="beforeSuite"/>
+          <include name="setUp"/>
+          <include name="afterSuite"/>
         </methods>
       </class> <!-- com.testcases.FacilityViewTests -->
     </classes>

@@ -11,21 +11,12 @@ import com.browser.Driver;
 import com.pages.HomePage;
 import com.pages.LoginPage;
 
-public class HomePageTests {
+public class HomePageTests extends BaseTest{
 	
 	LoginPage loginpage;
 	HomePage homepage;
 	
-	@BeforeMethod
-	public void setUp() {
-		Driver.initialize();
-	}
 	
-	@AfterMethod
-	public void wrapUp() {
-		Driver.driver.close();
-	}
-
 	
 
 	@Test

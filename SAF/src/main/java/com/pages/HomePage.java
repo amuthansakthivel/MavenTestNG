@@ -12,7 +12,7 @@ import com.utils.DynamicXpath;
 import com.utils.SeleniumUtils;
 import com.utils.TestUtils;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
 	@FindBy(xpath="//span[text()='Global View']")
 	WebElement lnk_globalview;
@@ -37,22 +37,32 @@ public class HomePage {
 	
 	@FindBy(xpath="//span[text()='EXCEPTION PER COUNTRY FOR']")
 	WebElement txt_exceptionpercountryfor;
+	
+	
+	
+	//span[normalize-space(.)='textvalue']
 
+	
+	//static element
 	@FindBy(name="q")
 	WebElement searchBox;
+	
+	
 	
 	public static String txtbox_searchbox="//*[@name='%replaceable%']";
 
 	
-	public HomePage() {
-		PageFactory.initElements(Driver.driver, this);
-	}
+	
 	
 	
 	public void logout() {
+		String a="abcd";
 		SeleniumUtils.click(lnk_asakthiv);
 		SeleniumUtils.click(lnk_logout);
 		SeleniumUtils.click(btn_logoutonframe);
+		
+		//clicking on dynamic element
+		searchBox.findElement(By.xpath("/a/span[@id='"+a+"']")).click();
 	}
 	
 	public  GlobalViewPage clickOnGlobalView() {
@@ -63,19 +73,11 @@ public class HomePage {
 		SeleniumUtils.click(lnk_facilityview);
 		return new FacilityViewPage();
 	}
-	public MovementPage clickOnMovement() {
-		SeleniumUtils.click(lnk_movement);
-		return new MovementPage();
-	}
-	public AccountViewPage clickOnAccountView() {
-		SeleniumUtils.click(lnk_accountview);
-		return new AccountViewPage();
-	}
 	
 	public void searchOnGoogle(String value) {
 		//SeleniumUtils.sendkeys(searchBox, "automation");
 		String newxpath=DynamicXpath.get(txtbox_searchbox, "q");
-		SeleniumUtils.sendkeys(Driver.driver.findElement(By.xpath(newxpath)),value);
+		SeleniumUtils.sendkeys(Driver.getDriver().findElement(By.xpath(newxpath)),value);
 	}
 	
 	public boolean checkDefaultTabSelectedIsGlobalView() {

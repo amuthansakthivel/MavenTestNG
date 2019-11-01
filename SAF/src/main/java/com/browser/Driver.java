@@ -23,8 +23,21 @@ import com.utils.ReadPropertyFile;
  */
 
 public class Driver {
+	
+	public static ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
+	
+	public static WebDriver getDriver() {
 
-	public static WebDriver driver=null;
+		return dr.get();
+
+	}
+
+	public static void setWebDriver(WebDriver driver) {
+
+		dr.set(driver);
+	}
+
+	public  WebDriver driver=null;
 
 	private Driver() 
 	{
@@ -49,11 +62,13 @@ public class Driver {
 		catch (Exception e) {
 			LogStatus.fail(e);
 		}
+		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(ReadPropertyFile.get("WaitTime")), TimeUnit.SECONDS);
 		EventHandlerInit();
 		driver.get(ReadPropertyFile.get("url"));
 		driver.manage().deleteAllCookies();
+		setWebDriver(driver);
 	}
 
 	public static void initialize() {
@@ -61,8 +76,8 @@ public class Driver {
 	}
 
 	public static void quit() {
-		if(driver!=null) {
-			driver.quit();
+		if(getDriver()!=null) {
+			getDriver().quit();
 		}
 	}
 

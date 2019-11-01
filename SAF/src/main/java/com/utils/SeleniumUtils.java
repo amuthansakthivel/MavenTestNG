@@ -30,12 +30,12 @@ public class SeleniumUtils {
 	}
 
 	public static void highlightElement(WebElement element) {
-		((JavascriptExecutor)Driver.driver).executeScript("arguments[0].style.border='3px solid red'", element);
+		((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
 	public static boolean isVisible(WebElement element) {
 		boolean flag=false;
-		Driver.driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		Driver.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		try
 		{
 			if(element.isDisplayed())

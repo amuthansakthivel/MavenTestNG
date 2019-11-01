@@ -33,8 +33,10 @@ import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 import org.apache.commons.mail.MultiPartEmail;
 import org.apache.commons.mail.SimpleEmail;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.util.ArrayUtil;
 import org.apache.poi.util.IOUtils;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
@@ -160,8 +162,9 @@ public class TestUtils {
 	 */
 	public static String getCellContent(String sheetname,int rownum,int colnum) {
 		sheet=workbook.getSheet(sheetname);
-		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().toString();
+		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().concat("").toString();
 
+		
 	}
 
 	/*
@@ -170,7 +173,7 @@ public class TestUtils {
 	 */
 	public static String getCellContent(String sheetname,int rownum,String columnname) {
 		sheet=workbook.getSheet(sheetname);
-		return sheet.getRow(rownum).getCell(getColumnNumForColumnName(sheetname, columnname)).getStringCellValue().toString();
+		return sheet.getRow(rownum).getCell(getColumnNumForColumnName(sheetname, columnname)).getStringCellValue().concat("").toString();
 
 	}
 
@@ -184,7 +187,7 @@ public class TestUtils {
 		System.out.println(rownum);
 		int colnum=getColumnNumForColumnName(sheetname, columnname);
 		System.out.println(colnum);
-		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().toString();
+		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().concat("").toString();
 
 	}
 
@@ -199,7 +202,7 @@ public class TestUtils {
 
 		if(ReadPropertyFile.get("ScreenshotsRequired").equalsIgnoreCase("yes")) {
 
-			File scrFile = ((TakesScreenshot) Driver.driver).getScreenshotAs(OutputType.FILE);
+			File scrFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
 			try {
 				if(screenshotPath.equals("")) {
 					FileUtils.copyFile(scrFile, new File("./screenshots/" + ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png"));
@@ -224,7 +227,7 @@ public class TestUtils {
 
 		String destination=null;
 		if(ReadPropertyFile.get("ScreenshotsRequired").equalsIgnoreCase("yes")) {
-			File scrFile = ((TakesScreenshot) Driver.driver).getScreenshotAs(OutputType.FILE);
+			File scrFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
 			try {
 				if(screenshotPath.equals("")) {
 
@@ -327,7 +330,7 @@ public class TestUtils {
 	}
 
 	/*
-	 * Finding number of iteration available for test case and return the data accordingly.
+	 * Finding number of iterations available for test case and return the data accordingly.
 	 * Using hashtable avoids multiple parameters entry to the test case.
 	 * 
 	 */

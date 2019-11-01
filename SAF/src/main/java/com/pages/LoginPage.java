@@ -11,7 +11,7 @@ import com.utils.ReadPropertyFile;
 import com.utils.SeleniumUtils;
 import com.utils.TestUtils;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
 	
 	@FindBy(name="username")
 	WebElement txtbox_username;
@@ -22,9 +22,9 @@ public class LoginPage {
 	@FindBy(xpath="//*[text()='LOGIN']")
 	WebElement btn_login;
 
-	public LoginPage() {
+	/*public LoginPage() {
 		PageFactory.initElements(Driver.driver, this);
-	}
+	}*/
 	
 	public  HomePage login() {
 		SeleniumUtils.sendkeys(txtbox_username,TestUtils.getCellContent("TestData", ListenerClass.TestcaseName, "username"));

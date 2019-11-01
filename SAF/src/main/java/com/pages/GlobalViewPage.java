@@ -11,7 +11,7 @@ public class GlobalViewPage {
 	WebElement txtbox_username;
 
 	public GlobalViewPage() {
-		PageFactory.initElements(Driver.driver, this);
+		PageFactory.initElements(Driver.getDriver(), this);
 	}
 
 }

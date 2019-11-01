@@ -3,6 +3,7 @@ package com.testcases;
 import java.lang.reflect.Method;
 import java.util.Hashtable;
 
+import org.openqa.selenium.WebDriver.Timeouts;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -21,28 +22,17 @@ import com.relevantcodes.extentreports.LogStatus;
 import com.reports.ExtentReport;
 import com.utils.TestUtils;
 
-public class FacilityViewTests {
+import okio.Timeout;
+
+public class FacilityViewTests extends BaseTest{
 	
 	LoginPage loginpage;
 	HomePage homepage;
 	FacilityViewPage facilityviewpage;
 	
 	
-	@BeforeMethod
-	public void setUp() {
-		Driver.initialize();
-	}
+
 	
-	@BeforeSuite
-	public void beforeSuite() throws Exception {
-		ExtentReport.initialize();
-	}
-	
-	@AfterSuite
-	public void afterSuite() throws Exception {
-		ExtentReport.report.flush();
-		TestUtils.sendEmailWithResults();
-	}
 	
 	
 	@Test
@@ -62,10 +52,11 @@ public class FacilityViewTests {
 		homepage.logout();
 	}
 	
-	@Test()
+	@Test
 	public void test1(Hashtable<String,String> data) {
 		homepage=new HomePage();
 		homepage.searchOnGoogle(data.get("valueforsearch"));
+		System.out.println("username :" + data.get("username"));
 		//Assert.assertEquals(1, 2);
 		
 	}
@@ -73,14 +64,12 @@ public class FacilityViewTests {
 	public void test2(Hashtable<String,String> data) {
 		homepage=new HomePage();
 		homepage.searchOnGoogle(data.get("valueforsearch"));
-		Assert.assertEquals(1, 2);
+		//Assert.assertEquals(1, 2);
+		
 	}
 	
 	
 	
-	@AfterMethod
-	public void wrapUp() {
-		Driver.driver.close();
-	}
+	
 
 }

@@ -20,10 +20,11 @@ public class FacilityViewPage {
 	WebElement txtbox_accountnumber;
 
 	public FacilityViewPage() {
-		PageFactory.initElements(Driver.driver, this);
+		PageFactory.initElements(Driver.getDriver(), this);
 	}
 	
 	public void entershipmentID() {
+		
 		SeleniumUtils.sendkeys(txtbox_shipmentID, "abc123");
 	}
 	
