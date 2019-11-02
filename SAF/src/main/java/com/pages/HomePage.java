@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.browser.Driver;
+import com.browser.DriverManager;
 import com.relevantcodes.extentreports.LogStatus;
 import com.reports.ExtentReport;
 import com.utils.DynamicXpath;
@@ -39,11 +40,7 @@ public class HomePage extends BasePage {
 	WebElement txt_exceptionpercountryfor;
 	
 	
-	
-	//span[normalize-space(.)='textvalue']
 
-	
-	//static element
 	@FindBy(name="q")
 	WebElement searchBox;
 	
@@ -65,19 +62,13 @@ public class HomePage extends BasePage {
 		searchBox.findElement(By.xpath("/a/span[@id='"+a+"']")).click();
 	}
 	
-	public  GlobalViewPage clickOnGlobalView() {
-		SeleniumUtils.click(lnk_globalview);
-		return new GlobalViewPage();
-	}
-	public FacilityViewPage clickOnFacilityView() {
-		SeleniumUtils.click(lnk_facilityview);
-		return new FacilityViewPage();
-	}
+	
+	
 	
 	public void searchOnGoogle(String value) {
 		//SeleniumUtils.sendkeys(searchBox, "automation");
 		String newxpath=DynamicXpath.get(txtbox_searchbox, "q");
-		SeleniumUtils.sendkeys(Driver.getDriver().findElement(By.xpath(newxpath)),value);
+		SeleniumUtils.sendkeys(DriverManager.getDriver().findElement(By.xpath(newxpath)),value);
 	}
 	
 	public boolean checkDefaultTabSelectedIsGlobalView() {

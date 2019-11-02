@@ -46,6 +46,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
 
 import com.browser.Driver;
+import com.browser.DriverManager;
 import com.listener.ListenerClass;
 import com.reports.ExtentReport;
 import com.reports.LogStatus;
@@ -202,7 +203,7 @@ public class TestUtils {
 
 		if(ReadPropertyFile.get("ScreenshotsRequired").equalsIgnoreCase("yes")) {
 
-			File scrFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
+			File scrFile = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
 			try {
 				if(screenshotPath.equals("")) {
 					FileUtils.copyFile(scrFile, new File("./screenshots/" + ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png"));
@@ -227,7 +228,7 @@ public class TestUtils {
 
 		String destination=null;
 		if(ReadPropertyFile.get("ScreenshotsRequired").equalsIgnoreCase("yes")) {
-			File scrFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
+			File scrFile = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
 			try {
 				if(screenshotPath.equals("")) {
 

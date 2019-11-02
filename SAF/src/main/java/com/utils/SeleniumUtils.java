@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import com.browser.Driver;
+import com.browser.DriverManager;
 import com.reports.ExtentReport;
 import com.reports.LogStatus;
 
@@ -30,12 +31,12 @@ public class SeleniumUtils {
 	}
 
 	public static void highlightElement(WebElement element) {
-		((JavascriptExecutor)Driver.getDriver()).executeScript("arguments[0].style.border='3px solid red'", element);
+		((JavascriptExecutor)DriverManager.getDriver()).executeScript("arguments[0].style.border='3px solid red'", element);
 	}
 
 	public static boolean isVisible(WebElement element) {
 		boolean flag=false;
-		Driver.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		DriverManager.getDriver().manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		try
 		{
 			if(element.isDisplayed())

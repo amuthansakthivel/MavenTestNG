@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import com.browser.Driver;
+import com.browser.DriverManager;
 import com.reports.ExtentReport;
 import com.utils.TestUtils;
 
@@ -18,7 +19,7 @@ public class BaseTest {
 	
 	@AfterMethod
 	public void wrapUp() {
-		Driver.getDriver().close();
+		DriverManager.getDriver().close();
 	}
 	
 	@BeforeSuite

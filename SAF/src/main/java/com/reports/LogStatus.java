@@ -62,7 +62,6 @@ public class LogStatus {
 
 		if(ReadPropertyFile.get("PassedStepsScreenshots").equalsIgnoreCase("yes")) {
 			ExtentManager.getExtTest().log(com.relevantcodes.extentreports.LogStatus.PASS, string,ExtentManager.getExtTest().addBase64ScreenShot("data:image/png;base64,"+TestUtils.getBase64Image(addScreenCapture)));
-			//	ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.PASS, string , ExtentReport.logger.addScreenCapture(addScreenCapture));
 		}
 	}
 
@@ -71,7 +70,6 @@ public class LogStatus {
 
 		if(ReadPropertyFile.get("FailedStepsScreenshots").equalsIgnoreCase("yes")) {
 			ExtentManager.getExtTest().log(com.relevantcodes.extentreports.LogStatus.FAIL, string,ExtentManager.getExtTest().addBase64ScreenShot("data:image/png;base64,"+TestUtils.getBase64Image(addScreenCapture)));
-			//	ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.PASS, string , ExtentReport.logger.addScreenCapture(addScreenCapture));
 		}
 
 	}
@@ -80,7 +78,6 @@ public class LogStatus {
 	{
 		if(ReadPropertyFile.get("FailedStepsScreenshots").equalsIgnoreCase("yes")) {
 			ExtentManager.getExtTest().log(com.relevantcodes.extentreports.LogStatus.SKIP, string,ExtentManager.getExtTest().addBase64ScreenShot("data:image/png;base64,"+TestUtils.getBase64Image(addScreenCapture)));
-			//	ExtentReport.logger.log(com.relevantcodes.extentreports.LogStatus.SKIP, string, ExtentReport.logger.addScreenCapture(addScreenCapture));
 		}
 
 	}

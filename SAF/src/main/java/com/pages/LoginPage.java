@@ -22,9 +22,7 @@ public class LoginPage extends BasePage{
 	@FindBy(xpath="//*[text()='LOGIN']")
 	WebElement btn_login;
 
-	/*public LoginPage() {
-		PageFactory.initElements(Driver.driver, this);
-	}*/
+	
 	
 	public  HomePage login() {
 		SeleniumUtils.sendkeys(txtbox_username,TestUtils.getCellContent("TestData", ListenerClass.TestcaseName, "username"));
