@@ -1,9 +1,15 @@
 package com.browser;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import com.reports.LogStatus;
 import com.utils.EventCapture;
@@ -21,13 +27,38 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  */
 
 public class Driver {
-	
-	
+
+
 
 	public  WebDriver driver=null;
+	public DesiredCapabilities capability;
 
-	private Driver() 
+	private Driver() throws MalformedURLException 
 	{
+		if(ReadPropertyFile.get("RunMode").equalsIgnoreCase("local")) {
+			startBrowserForLocal();
+		}
+		else if(ReadPropertyFile.get("RunMode").equalsIgnoreCase("Remote"))
+		{
+			startBrowserForRemote();
+		}
+		else {
+			try {
+				throw new Exception("Please set up the run mode properly in TestRunDetails.properties");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Integer.parseInt(ReadPropertyFile.get("WaitTime")), TimeUnit.SECONDS);
+		EventHandlerInit();
+		driver.get(ReadPropertyFile.get("url"));
+		driver.manage().deleteAllCookies();
+		DriverManager.setWebDriver(driver);
+	}
+
+	private void startBrowserForLocal() {
 		String browser=ReadPropertyFile.get("Browser");
 		try {
 			if(browser.equalsIgnoreCase("chrome")) {
@@ -45,18 +76,41 @@ public class Driver {
 		catch (Exception e) {
 			LogStatus.fail(e);
 		}
-		
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Integer.parseInt(ReadPropertyFile.get("WaitTime")), TimeUnit.SECONDS);
-		EventHandlerInit();
-		driver.get(ReadPropertyFile.get("url"));
-		driver.manage().deleteAllCookies();
-		DriverManager.setWebDriver(driver);
+	}
+	
+	private void startBrowserForRemote() throws MalformedURLException {
+		String browser=ReadPropertyFile.get("Browser");
+		switch(browser){
+
+		case "chrome":
+			capability = DesiredCapabilities.chrome();
+			capability.setBrowserName("chrome");
+			capability.setPlatform(Platform.ANY);
+			driver=new RemoteWebDriver(new URL(ReadPropertyFile.get("RemoteURL")),capability);
+			break;
+		case "firefox":
+			capability = DesiredCapabilities.firefox();
+			capability.setBrowserName("firefox");
+			capability.setPlatform(Platform.ANY);
+			driver=new RemoteWebDriver(new URL(ReadPropertyFile.get("RemoteURL")),capability);
+			break;
+		default:
+			capability = DesiredCapabilities.firefox();
+			capability.setBrowserName("firefox");
+			capability.setPlatform(Platform.ANY);
+			driver=new RemoteWebDriver(new URL(ReadPropertyFile.get("RemoteURL")),capability);
+			break;
+		}
 	}
 
-	public static void initialize() {
+	public static void initialize()  {
 		if(DriverManager.getDriver()==null)
-		new Driver();
+			try {
+			new Driver();
+			}
+		catch(Exception e) {
+			
+		}
 	}
 
 	public static void quit() {

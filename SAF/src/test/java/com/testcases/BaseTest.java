@@ -7,31 +7,42 @@ import org.testng.annotations.BeforeSuite;
 
 import com.browser.Driver;
 import com.browser.DriverManager;
+import com.browser.RemoteConfiguration;
 import com.reports.ExtentReport;
+import com.utils.ReadPropertyFile;
 import com.utils.TestUtils;
 
 public class BaseTest {
-	
+
 	@BeforeMethod
 	public void setUp() {
-		Driver.initialize();
+		try {
+			Driver.initialize();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
-	
+
 	@AfterMethod
 	public void wrapUp() {
 		DriverManager.getDriver().close();
 	}
-	
+
 	@BeforeSuite
 	public void beforeSuite() throws Exception {
 		ExtentReport.initialize();
+		if(ReadPropertyFile.get("RunMode").equalsIgnoreCase("Remote"))
+			RemoteConfiguration.setUpRemote();
 	}
-	
+
 	@AfterSuite
 	public void afterSuite() throws Exception {
-		
+
 		ExtentReport.report.flush();
 		TestUtils.sendEmailWithResults();
+		if(ReadPropertyFile.get("RunMode").equalsIgnoreCase("Remote")) {
+			RemoteConfiguration.shutDownRemote();
+		}
 	}
 
 }

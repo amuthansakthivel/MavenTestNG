@@ -1,0 +1,1 @@
+docker-compose scale chrome=5

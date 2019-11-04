@@ -9,10 +9,11 @@
     <classes>
       <class name="com.testcases.FacilityViewTests">
         <methods>
-          <include name="test1"/>
           <include name="wrapUp"/>
+          <include name="checkWhetherGlobalViewIsSelectedByDefault"/>
           <include name="beforeSuite"/>
           <include name="setUp"/>
+          <include name="validateEnteringShipmentID"/>
           <include name="afterSuite"/>
         </methods>
       </class> <!-- com.testcases.FacilityViewTests -->

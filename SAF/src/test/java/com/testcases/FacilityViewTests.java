@@ -13,14 +13,14 @@ public class FacilityViewTests extends BaseTest{
 	
 	
 	
-	@Test
+	//@Test
 	public void validateEnteringShipmentID() {
 		loginpage=new LoginPage();
 		homepage=loginpage.login();
 		
 	}
 	
-	@Test
+	//@Test
 	public void checkWhetherGlobalViewIsSelectedByDefault() {
 		loginpage=new LoginPage();
 		homepage=loginpage.login();
@@ -32,14 +32,13 @@ public class FacilityViewTests extends BaseTest{
 	public void test1(Hashtable<String,String> data) {
 		homepage=new HomePage();
 		homepage.searchOnGoogle(data.get("valueforsearch"));
-		System.out.println("username :" + data.get("username"));
+		
 		//Assert.assertEquals(1, 2);
 		
 	}
 	@Test
 	public void test2(Hashtable<String,String> data) {
 		homepage=new HomePage();
-		
 		homepage.searchOnGoogle(data.get("valueforsearch"));
 		//Assert.assertEquals(1, 2);
 		

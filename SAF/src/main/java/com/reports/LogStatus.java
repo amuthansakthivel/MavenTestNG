@@ -76,7 +76,7 @@ public class LogStatus {
 
 	public static void skip(String string, String addScreenCapture)
 	{
-		if(ReadPropertyFile.get("FailedStepsScreenshots").equalsIgnoreCase("yes")) {
+		if(ReadPropertyFile.get("SkippedStepsScreenshots").equalsIgnoreCase("yes")) {
 			ExtentManager.getExtTest().log(com.relevantcodes.extentreports.LogStatus.SKIP, string,ExtentManager.getExtTest().addBase64ScreenShot("data:image/png;base64,"+TestUtils.getBase64Image(addScreenCapture)));
 		}
 

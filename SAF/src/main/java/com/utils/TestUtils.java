@@ -1,10 +1,9 @@
 package com.utils;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -12,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Iterator;
+
 import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.TimeUnit;
+
+import java.util.Random;
+
 
 import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
@@ -185,9 +184,7 @@ public class TestUtils {
 	public static String getCellContent(String sheetname,String rowname,String columnname) {
 		sheet=workbook.getSheet(sheetname);
 		int rownum=getRowNumForRowName(sheetname, rowname);
-		System.out.println(rownum);
 		int colnum=getColumnNumForColumnName(sheetname, columnname);
-		System.out.println(colnum);
 		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().concat("").toString();
 
 	}
@@ -206,11 +203,11 @@ public class TestUtils {
 			File scrFile = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
 			try {
 				if(screenshotPath.equals("")) {
-					FileUtils.copyFile(scrFile, new File("./screenshots/" + ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png"));
+					FileUtils.copyFile(scrFile, new File("./screenshots/" + ListenerClass.getTestcaseName()+"/"+ System.currentTimeMillis() + new Random().nextInt(20)+".png"));
 				}
 				else
 				{
-					FileUtils.copyFile(scrFile, new File(screenshotPath+"/screenshots/" + ListenerClass.TestcaseName+"/"+ System.currentTimeMillis() + ".png"));	
+					FileUtils.copyFile(scrFile, new File(screenshotPath+"/screenshots/" + ListenerClass.getTestcaseName()+"/"+ System.currentTimeMillis() +new Random().nextInt(20)+ ".png"));	
 				}
 			}
 			catch (IOException e) {
@@ -232,11 +229,11 @@ public class TestUtils {
 			try {
 				if(screenshotPath.equals("")) {
 
-					destination=System.getProperty("user.dir")+"\\screenshots\\" +ListenerClass.TestcaseName+"\\"+ System.currentTimeMillis() + ".png";
+					destination=System.getProperty("user.dir")+"\\screenshots\\" +ListenerClass.getTestcaseName()+"\\"+ System.currentTimeMillis()+new Random().nextInt(20)+".png";
 					FileUtils.copyFile(scrFile, new File(destination));
 				}
 				else {
-					destination=screenshotPath+"\\screenshots\\" +ListenerClass.TestcaseName.replaceAll(" ","")+"\\"+ System.currentTimeMillis() + ".png";
+					destination=screenshotPath+"\\screenshots\\" +ListenerClass.getTestcaseName().replaceAll(" ","")+"\\"+ System.currentTimeMillis() +new Random().nextInt(20)+".png";
 					FileUtils.copyFile(scrFile, new File(destination));
 				}
 
@@ -247,7 +244,7 @@ public class TestUtils {
 			}
 
 		}
-		System.out.println(destination);
+	
 		return destination;
 
 	}

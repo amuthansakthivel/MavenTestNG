@@ -25,8 +25,8 @@ public class LoginPage extends BasePage{
 	
 	
 	public  HomePage login() {
-		SeleniumUtils.sendkeys(txtbox_username,TestUtils.getCellContent("TestData", ListenerClass.TestcaseName, "username"));
-		SeleniumUtils.sendkeys(txtbox_password,TestUtils.getCellContent("TestData", ListenerClass.TestcaseName, "password"));
+		SeleniumUtils.sendkeys(txtbox_username,TestUtils.getCellContent("TestData", ListenerClass.getTestcaseName(), "username"));
+		SeleniumUtils.sendkeys(txtbox_password,TestUtils.getCellContent("TestData", ListenerClass.getTestcaseName(), "password"));
 		SeleniumUtils.click(btn_login);
 		return new HomePage();
 	}

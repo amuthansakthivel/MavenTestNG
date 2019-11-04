@@ -15,13 +15,24 @@ import com.utils.TestUtils;
  * Listener class which is implementing ITestListener and hence we can use this to dynamically create reports, write logs.
  */
 public class ListenerClass implements ITestListener{
-	public static String TestcaseName;
+	
+	private static String TestcaseName;
+
+	
+
+	public static String getTestcaseName() {
+		return TestcaseName;
+	}
+
+	public static void setTestcaseName(String testcaseName) {
+		TestcaseName = testcaseName;
+	}
 
 	public void onTestStart(ITestResult result) {
 		TestcaseName =result.getMethod().getDescription();
-		
+		setTestcaseName(TestcaseName);
 		ExtentManager.setExtentTest(ExtentReport.report.startTest(TestcaseName));
-		LogStatus.pass("Test Case "+TestcaseName+ " is started successfully");
+		LogStatus.pass(TestcaseName+ " is started successfully");
 		
 	}
 
