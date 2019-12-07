@@ -2,34 +2,34 @@
 <testng-results skipped="0" failed="0" ignored="5" total="8" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="68179" started-at="2019-11-03T17:06:12Z" finished-at="2019-11-03T17:07:20Z">
+  <suite name="Suite" duration-ms="17074" started-at="2019-12-07T07:00:43Z" finished-at="2019-12-07T07:01:00Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="68179" started-at="2019-11-03T17:06:12Z" finished-at="2019-11-03T17:07:20Z">
+    <test name="Test" duration-ms="17074" started-at="2019-12-07T07:00:43Z" finished-at="2019-12-07T07:01:00Z">
       <class name="com.testcases.BaseTest">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testcases.BaseTest@7b9a4292]" name="beforeSuite" is-config="true" duration-ms="20346" started-at="2019-11-03T17:05:51Z" finished-at="2019-11-03T17:06:12Z">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.testcases.BaseTest@7b9a4292]" name="beforeSuite" is-config="true" duration-ms="178" started-at="2019-12-07T07:00:43Z" finished-at="2019-12-07T07:00:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testcases.BaseTest@7b9a4292]" name="afterSuite" is-config="true" duration-ms="40631" started-at="2019-11-03T17:07:20Z" finished-at="2019-11-03T17:08:00Z">
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.testcases.BaseTest@7b9a4292]" name="afterSuite" is-config="true" duration-ms="1857" started-at="2019-12-07T07:01:00Z" finished-at="2019-12-07T07:01:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
       </class> <!-- com.testcases.BaseTest -->
       <class name="com.testcases.FacilityViewTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="setUp" is-config="true" duration-ms="50031" started-at="2019-11-03T17:06:12Z" finished-at="2019-11-03T17:07:02Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="setUp" is-config="true" duration-ms="15062" started-at="2019-12-07T07:00:43Z" finished-at="2019-12-07T07:00:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="setUp" is-config="true" duration-ms="62155" started-at="2019-11-03T17:06:12Z" finished-at="2019-11-03T17:07:14Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="setUp" is-config="true" duration-ms="15049" started-at="2019-12-07T07:00:43Z" finished-at="2019-12-07T07:00:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="setUp" is-config="true" duration-ms="52618" started-at="2019-11-03T17:06:12Z" finished-at="2019-11-03T17:07:04Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="setUp" is-config="true" duration-ms="15031" started-at="2019-12-07T07:00:43Z" finished-at="2019-12-07T07:00:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="test2(java.util.Hashtable)[pri:1, instance:com.testcases.FacilityViewTests@4a94ee4]" name="test2" duration-ms="8584" started-at="2019-11-03T17:07:02Z" description="Test Case 2" finished-at="2019-11-03T17:07:10Z">
+        <test-method status="PASS" signature="test2(java.util.Hashtable)[pri:1, instance:com.testcases.FacilityViewTests@4a94ee4]" name="test2" duration-ms="1557" started-at="2019-12-07T07:00:58Z" description="Test Case 2" finished-at="2019-12-07T07:01:00Z">
           <params>
             <param index="0">
               <value>
@@ -40,26 +40,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test2 -->
-        <test-method status="PASS" signature="test1(java.util.Hashtable)[pri:1, instance:com.testcases.FacilityViewTests@4a94ee4]" name="test1" duration-ms="6980" started-at="2019-11-03T17:07:04Z" description="Test case 1" finished-at="2019-11-03T17:07:11Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{valueforsearch=appium, password=, TestCaseName=test1, username=abcd}]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="wrapUp" is-config="true" duration-ms="822" started-at="2019-11-03T17:07:10Z" finished-at="2019-11-03T17:07:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- wrapUp -->
-        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="wrapUp" is-config="true" duration-ms="590" started-at="2019-11-03T17:07:11Z" finished-at="2019-11-03T17:07:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- wrapUp -->
-        <test-method status="PASS" signature="test1(java.util.Hashtable)[pri:1, instance:com.testcases.FacilityViewTests@4a94ee4]" name="test1" duration-ms="5302" started-at="2019-11-03T17:07:14Z" description="Test case 1" finished-at="2019-11-03T17:07:19Z">
+        <test-method status="PASS" signature="test1(java.util.Hashtable)[pri:1, instance:com.testcases.FacilityViewTests@4a94ee4]" name="test1" duration-ms="1539" started-at="2019-12-07T07:00:58Z" description="Test case 1" finished-at="2019-12-07T07:01:00Z">
           <params>
             <param index="0">
               <value>
@@ -70,7 +51,26 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test1 -->
-        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="wrapUp" is-config="true" duration-ms="594" started-at="2019-11-03T17:07:19Z" finished-at="2019-11-03T17:07:20Z">
+        <test-method status="PASS" signature="test1(java.util.Hashtable)[pri:1, instance:com.testcases.FacilityViewTests@4a94ee4]" name="test1" duration-ms="1506" started-at="2019-12-07T07:00:58Z" description="Test case 1" finished-at="2019-12-07T07:01:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{valueforsearch=appium, password=, TestCaseName=test1, username=abcd}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test1 -->
+        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="wrapUp" is-config="true" duration-ms="324" started-at="2019-12-07T07:01:00Z" finished-at="2019-12-07T07:01:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- wrapUp -->
+        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="wrapUp" is-config="true" duration-ms="325" started-at="2019-12-07T07:01:00Z" finished-at="2019-12-07T07:01:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- wrapUp -->
+        <test-method status="PASS" signature="wrapUp()[pri:0, instance:com.testcases.FacilityViewTests@4a94ee4]" name="wrapUp" is-config="true" duration-ms="437" started-at="2019-12-07T07:01:00Z" finished-at="2019-12-07T07:01:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- wrapUp -->

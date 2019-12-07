@@ -9,11 +9,11 @@
     <classes>
       <class name="com.testcases.FacilityViewTests">
         <methods>
+          <include name="test1" invocation-numbers="1 0"/>
           <include name="wrapUp"/>
-          <include name="checkWhetherGlobalViewIsSelectedByDefault"/>
+          <include name="test2" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="setUp"/>
-          <include name="validateEnteringShipmentID"/>
           <include name="afterSuite"/>
         </methods>
       </class> <!-- com.testcases.FacilityViewTests -->

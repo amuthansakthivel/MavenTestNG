@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.constants.Constants;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.utils.ReadPropertyFile;
@@ -24,7 +25,7 @@ public class ExtentReport {
 		{
 			if(ReadPropertyFile.get("ResultPath").equals("")) 
 			{
-				extentreportpath=".\\ExtentReports\\Test Report.html";
+				extentreportpath=Constants.PROJECTPATH+"\\ExtentReports\\Test Report.html";
 				
 			}
 			else {
@@ -35,7 +36,7 @@ public class ExtentReport {
 		{
 			if(ReadPropertyFile.get("ResultPath").equals("")) 
 			{
-				extentreportpath=".\\ExtentReports\\Test Report_"+currentDate+".html";
+				extentreportpath=Constants.PROJECTPATH+"\\ExtentReports\\Test Report_"+currentDate+".html";
 			}
 			
 			else
@@ -46,7 +47,7 @@ public class ExtentReport {
 
 		}
 		report=new ExtentReports(extentreportpath);
-		report.loadConfig(new File("./src/test/resources/extentreport.xml"));
+		report.loadConfig(new File(Constants.EXTENTCONFIGPATH));
 	}
 
 	public static void initialize()

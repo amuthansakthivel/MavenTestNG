@@ -10,7 +10,6 @@ import com.browser.DriverManager;
 import com.relevantcodes.extentreports.LogStatus;
 import com.reports.ExtentReport;
 import com.utils.DynamicXpath;
-import com.utils.SeleniumUtils;
 import com.utils.TestUtils;
 
 public class HomePage extends BasePage {
@@ -54,9 +53,9 @@ public class HomePage extends BasePage {
 	
 	public void logout() {
 		String a="abcd";
-		SeleniumUtils.click(lnk_asakthiv);
-		SeleniumUtils.click(lnk_logout);
-		SeleniumUtils.click(btn_logoutonframe);
+		click(lnk_asakthiv);
+		click(lnk_logout);
+		click(btn_logoutonframe);
 		
 		//clicking on dynamic element
 		searchBox.findElement(By.xpath("/a/span[@id='"+a+"']")).click();
@@ -68,20 +67,8 @@ public class HomePage extends BasePage {
 	public void searchOnGoogle(String value) {
 		//SeleniumUtils.sendkeys(searchBox, "automation");
 		String newxpath=DynamicXpath.get(txtbox_searchbox, "q");
-		SeleniumUtils.sendkeys(DriverManager.getDriver().findElement(By.xpath(newxpath)),value);
+		sendkeys(DriverManager.getDriver().findElement(By.xpath(newxpath)),value);
 	}
 	
-	public boolean checkDefaultTabSelectedIsGlobalView() {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(txt_exceptionpercountryfor.isDisplayed()==true) {
-			com.reports.LogStatus.pass("Text : Exception country for is verified in the Global view");
-				}
-		TestUtils.takeScreenshot();
-		return txt_exceptionpercountryfor.isDisplayed();
-	}
+	
 }

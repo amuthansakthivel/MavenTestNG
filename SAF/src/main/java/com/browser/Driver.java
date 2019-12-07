@@ -11,6 +11,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+
+import com.constants.Constants;
 import com.reports.LogStatus;
 import com.utils.EventCapture;
 import com.utils.ReadPropertyFile;
@@ -62,12 +64,14 @@ public class Driver {
 		String browser=ReadPropertyFile.get("Browser");
 		try {
 			if(browser.equalsIgnoreCase("chrome")) {
-				WebDriverManager.chromedriver().setup();
+				//WebDriverManager.chromedriver().setup();  //WebDriverManager some time wont work because of proxy issues
+				System.setProperty("webdriver.chrome.driver", Constants.CHROMEDRIVERPATH);
 				driver=new ChromeDriver();
 			}
 			else if(browser.equalsIgnoreCase("firefox")) 
 			{
-				WebDriverManager.firefoxdriver().setup();
+				//WebDriverManager.firefoxdriver().setup(); //WebDriverManager some time wont work because of proxy issues
+				System.setProperty("webdriver.gecko.driver", Constants.GECKODRIVERPATH);
 				System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE,"true");
 				System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"C:\\temp\\logs.txt");
 				driver= new FirefoxDriver();

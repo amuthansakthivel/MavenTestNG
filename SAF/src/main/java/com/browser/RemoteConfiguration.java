@@ -88,7 +88,7 @@ public class RemoteConfiguration {
 		else if(ReadPropertyFile.get("RemoteMode").equalsIgnoreCase("Zalenium")){
 			try {
 				runtime.exec("cmd /c start zaleniumDown.bat");
-				verifyDockerIsUp();
+				//verifyDockerIsUp();
 				Thread.sleep(10000);
 			}
 			catch(Exception e ) {

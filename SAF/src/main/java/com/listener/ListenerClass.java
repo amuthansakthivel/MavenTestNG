@@ -1,13 +1,16 @@
 package com.listener;
 
 
+import org.openqa.selenium.Cookie;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.browser.DriverManager;
 import com.reports.ExtentManager;
 import com.reports.ExtentReport;
 import com.reports.LogStatus;
+import com.utils.ReadPropertyFile;
 import com.utils.TestUtils;
 
 
@@ -37,12 +40,19 @@ public class ListenerClass implements ITestListener{
 	}
 
 	public void onTestSuccess(ITestResult result) {
-		
+		/*if((ReadPropertyFile.get("RunMode").equalsIgnoreCase("Remote"))&&ReadPropertyFile.get("RemoteMode").equalsIgnoreCase("Zalenium")) {
+			Cookie cookie = new Cookie("zaleniumTestPassed", "true");
+		    DriverManager.getDriver().manage().addCookie(cookie);
+		}*/
 		LogStatus.pass(result.getMethod().getDescription()+ " test case is passed");
 		ExtentReport.report.endTest(ExtentManager.getExtTest());
 	}
 
 	public void onTestFailure(ITestResult result) {
+		/*if((ReadPropertyFile.get("RunMode").equalsIgnoreCase("Remote"))&&ReadPropertyFile.get("RemoteMode").equalsIgnoreCase("Zalenium")) {
+			Cookie cookie = new Cookie("zaleniumTestPassed", "false");
+		    DriverManager.getDriver().manage().addCookie(cookie);
+		}*/
 		LogStatus.fail(result.getMethod().getDescription()+ " is failed");
 		LogStatus.fail(result.getThrowable().toString());
 		LogStatus.fail("Failed",TestUtils.pullScreenshotPath());

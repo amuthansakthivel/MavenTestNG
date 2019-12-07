@@ -13,20 +13,7 @@ public class FacilityViewTests extends BaseTest{
 	
 	
 	
-	//@Test
-	public void validateEnteringShipmentID() {
-		loginpage=new LoginPage();
-		homepage=loginpage.login();
-		
-	}
 	
-	//@Test
-	public void checkWhetherGlobalViewIsSelectedByDefault() {
-		loginpage=new LoginPage();
-		homepage=loginpage.login();
-		Assert.assertTrue(homepage.checkDefaultTabSelectedIsGlobalView());
-		homepage.logout();
-	}
 	
 	@Test
 	public void test1(Hashtable<String,String> data) {

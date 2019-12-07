@@ -8,7 +8,7 @@ import com.browser.Driver;
 import com.listener.ListenerClass;
 import com.reports.ExtentReport;
 import com.utils.ReadPropertyFile;
-import com.utils.SeleniumUtils;
+
 import com.utils.TestUtils;
 
 public class LoginPage extends BasePage{
@@ -25,9 +25,9 @@ public class LoginPage extends BasePage{
 	
 	
 	public  HomePage login() {
-		SeleniumUtils.sendkeys(txtbox_username,TestUtils.getCellContent("TestData", ListenerClass.getTestcaseName(), "username"));
-		SeleniumUtils.sendkeys(txtbox_password,TestUtils.getCellContent("TestData", ListenerClass.getTestcaseName(), "password"));
-		SeleniumUtils.click(btn_login);
+		sendkeys(txtbox_username,TestUtils.getCellContent("TestData", ListenerClass.getTestcaseName(), "username"));
+		sendkeys(txtbox_password,TestUtils.getCellContent("TestData", ListenerClass.getTestcaseName(), "password"));
+		click(btn_login);
 		return new HomePage();
 	}
 }
