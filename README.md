@@ -45,4 +45,5 @@ How to run my scripts in Docker which is hosted in my local system?
 How to run my scripts in Docker which is hosted in some system connected in the same network in office?
 1. Open the TestRunDetails.properties file under src/test/resources and change the RemoteUrl to the ipaddress. So your remote URL should look like http://ipaddressofthemachine:4444/wd/hub
 
-Please feel free to raise issues in github or contact me mech.amuthansakthivel@gmail.com
+To get trainings on how to create this framework from scratch or to get recordings on sessions , contact mech.amuthansakthivel@gmail.com
+Please feel free to raise issues/PR for improving the framework.
