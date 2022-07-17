@@ -63,12 +63,12 @@ public class TestUtils {
 	public static FileInputStream fs;
 	public static XSSFWorkbook workbook;
 	public static XSSFSheet sheet;
-	public static List<String> testCases= new ArrayList<String>();
-	public static List<String> runStatus= new ArrayList<String>();
-	public static List<String> testDescription= new ArrayList<String>();
-	public static List<String> invocationCount= new ArrayList<String>();
-	public static List<String> priority= new ArrayList<String>();
-	public static HashMap<Integer,String> rowAndTestCaseMap=new HashMap<Integer,String>();
+	public static List<String> testCases= new ArrayList<>();
+	public static List<String> runStatus= new ArrayList<>();
+	public static List<String> testDescription= new ArrayList<>();
+	public static List<String> invocationCount= new ArrayList<>();
+	public static List<String> priority= new ArrayList<>();
+	public static HashMap<Integer,String> rowAndTestCaseMap= new HashMap<>();
 	public static String screenshotPath=ReadPropertyFile.get("ScreenshotPath");
 
 
@@ -81,7 +81,7 @@ public class TestUtils {
 			fs=new FileInputStream(ReadPropertyFile.get("TestDataLocation"));
 			workbook=new XSSFWorkbook(fs);
 			sheet=workbook.getSheet("RunManager");
-			for(int i=1;i<=getLastRowNum("RunManager");i++) {
+			for(int i=0;i<=getLastRowNum("RunManager");i++) {
 				//rowAndTestCaseMap.put(i,sheet.getRow(i).getCell(0).getStringCellValue().toString());
 				testCases.add(getCellContent("RunManager", i, "TestCaseName"));
 				testDescription.add(getCellContent("RunManager", i, "Test Case Description"));
@@ -163,7 +163,7 @@ public class TestUtils {
 	 */
 	public static String getCellContent(String sheetname,int rownum,int colnum) {
 		sheet=workbook.getSheet(sheetname);
-		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().concat("").toString();
+		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().concat("");
 
 		
 	}
@@ -174,7 +174,7 @@ public class TestUtils {
 	 */
 	public static String getCellContent(String sheetname,int rownum,String columnname) {
 		sheet=workbook.getSheet(sheetname);
-		return sheet.getRow(rownum).getCell(getColumnNumForColumnName(sheetname, columnname)).getStringCellValue().concat("").toString();
+		return sheet.getRow(rownum).getCell(getColumnNumForColumnName(sheetname, columnname)).getStringCellValue().concat("");
 
 	}
 
@@ -186,7 +186,7 @@ public class TestUtils {
 		sheet=workbook.getSheet(sheetname);
 		int rownum=getRowNumForRowName(sheetname, rowname);
 		int colnum=getColumnNumForColumnName(sheetname, columnname);
-		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().concat("").toString();
+		return sheet.getRow(rownum).getCell(colnum).getStringCellValue().concat("");
 
 	}
 
@@ -230,11 +230,11 @@ public class TestUtils {
 			try {
 				if(screenshotPath.equals("")) {
 
-					destination=System.getProperty("user.dir")+"\\screenshots\\" +ListenerClass.getTestcaseName()+"\\"+ System.currentTimeMillis()+new Random().nextInt(20)+".png";
+					destination=System.getProperty("user.dir")+"/screenshots/" +ListenerClass.getTestcaseName()+"/"+ System.currentTimeMillis()+new Random().nextInt(20)+".png";
 					FileUtils.copyFile(scrFile, new File(destination));
 				}
 				else {
-					destination=screenshotPath+"\\screenshots\\" +ListenerClass.getTestcaseName().replaceAll(" ","")+"\\"+ System.currentTimeMillis() +new Random().nextInt(20)+".png";
+					destination=screenshotPath+"/screenshots/" +ListenerClass.getTestcaseName().replaceAll(" ","")+"/"+ System.currentTimeMillis() +new Random().nextInt(20)+".png";
 					FileUtils.copyFile(scrFile, new File(destination));
 				}
 

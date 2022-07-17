@@ -2,32 +2,43 @@ package com.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import com.browser.Driver;
-import com.listener.ListenerClass;
-import com.reports.ExtentReport;
-import com.utils.ReadPropertyFile;
+public class LoginPage extends BasePage {
 
-import com.utils.TestUtils;
+	// Capture all the Elements in the Login page
 
-public class LoginPage extends BasePage{
-	
-	@FindBy(name="username")
+	@FindBy(xpath="//input[@id='user-name']")
 	WebElement txtbox_username;
-	
-	@FindBy(name="password")
-	WebElement txtbox_password;
-	
-	@FindBy(xpath="//*[text()='LOGIN']")
-	WebElement btn_login;
 
+	@FindBy(xpath="//input[@id='password']")
+	WebElement txtbox_password;
+
+	@FindBy(xpath="//input[@id='login-button']")
+	WebElement btn_password;
+
+	@FindBy(xpath="//div[@class='error-message-container error']/h3")
+	WebElement txt_errormsg;
+
+	@FindBy(xpath="//span[@class='title']")
+	WebElement heading_productsPage;
+
+	// Capture all the methods in the Login page
 	
-	
-	public  HomePage login() {
-		sendkeys(txtbox_username,TestUtils.getCellContent("TestData", ListenerClass.getTestcaseName(), "username"));
-		sendkeys(txtbox_password,TestUtils.getCellContent("TestData", ListenerClass.getTestcaseName(), "password"));
-		click(btn_login);
-		return new HomePage();
+	public void login(String user, String pwd)
+	{
+		sendkeys(txtbox_username,user);
+		sendkeys(txtbox_password,pwd);
+		click(btn_password);
 	}
+
+	public String get_login_error_msg()
+	{
+		return txt_errormsg.getText();
+	}
+
+	public String getProductsPageTitle()
+	{
+		return heading_productsPage.getText();
+	}
+
 }

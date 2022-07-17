@@ -25,23 +25,23 @@ public class ExtentReport {
 		{
 			if(ReadPropertyFile.get("ResultPath").equals("")) 
 			{
-				extentreportpath=Constants.PROJECTPATH+"\\ExtentReports\\Test Report.html";
+				extentreportpath=Constants.PROJECTPATH+"/ExtentReports/Test Report.html";
 				
 			}
 			else {
-				extentreportpath=ReadPropertyFile.get("ResultPath")+"\\ExtentReports\\Test Report.html";
+				extentreportpath=ReadPropertyFile.get("ResultPath")+"/ExtentReports/Test Report.html";
 			}
 		}
 		else 
 		{
 			if(ReadPropertyFile.get("ResultPath").equals("")) 
 			{
-				extentreportpath=Constants.PROJECTPATH+"\\ExtentReports\\Test Report_"+currentDate+".html";
+				extentreportpath=Constants.PROJECTPATH+"/ExtentReports/Test Report_"+currentDate+".html";
 			}
 			
 			else
 			{
-				extentreportpath=ReadPropertyFile.get("ResultPath")+"\\ExtentReports\\Test Report_"+currentDate+".html";
+				extentreportpath=ReadPropertyFile.get("ResultPath")+"/ExtentReports/Test Report_"+currentDate+".html";
 				
 			}
 

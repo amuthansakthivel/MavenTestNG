@@ -2,14 +2,13 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 <listeners>
-	<listener class-name="com.listener.ListenerClass"></listener>
-	<listener class-name="com.listener.AnnotationTransformer"></listener>
+    <listener class-name="com.listener.ListenerClass"/>
+    <listener class-name="com.listener.AnnotationTransformer"/>
 	</listeners>
   <test thread-count="2" name="Test" parallel="methods">
     <classes>
     	<class name="com.testcases.BaseTest"/>
-      <class name="com.testcases.FacilityViewTests"/>
-      <class name="com.testcases.HomePageTests"/>
+        <class name="com.testcases.LoginPageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
